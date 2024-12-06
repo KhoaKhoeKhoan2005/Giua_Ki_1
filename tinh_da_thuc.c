@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 #include <stdlib.h>
-int a[20],b[20],tong[20],hieu[20],tich[40],thuong[20],sodu[20],m,n,max;
+int a[20],b[20],tong[20],hieu[20],tich[40],thuong[20],sodu[20],so_mu_a,so_mu_b,max_a_b;
 int len(int mang[]);
 void nhapmang(int mang[], int l,char ten);
 void xuatmang(int mang[], int l,char ten);
@@ -14,13 +14,13 @@ void main(){
     printf("Gia su ta da rut gon xong bieu thuc, nhap cac he so vao a[] va b[]\nvoi bac thap dung truoc, bac cao dung sau.\n");
     printf("VD 2x^2-2x+1 va x^3-2, thi a[] = 1 -2 2 va b[] = -2 0 0 3\n");
     printf("bac cua bieu thuc 1 va bieu thuc 2: ");
-    scanf("%d %d",&m,&n);
-    if(m>=n) max=m;
-    else max=n;
-    nhapmang(a,m,'a');
-    nhapmang(b,n,'b');
-    xuatmang(a,m,'a');
-    xuatmang(b,n,'b');
+    scanf("%d %d",&so_mu_a,&so_mu_b);
+    if(so_mu_a>=so_mu_b) max_a_b=so_mu_a;
+    else max_a_b=so_mu_b;
+    nhapmang(a,so_mu_a,'a');
+    nhapmang(b,so_mu_b,'b');
+    xuatmang(a,so_mu_a,'a');
+    xuatmang(b,so_mu_b,'b');
     congmang(a,b);
     trumang(a,b);
     nhanmang(a,b);
@@ -54,20 +54,20 @@ void xuatmang(int mang[],int l,char ten){
 }
 
 void congmang(int a[], int b[]){
-    for(int i=0;i<=max;i++){
+    for(int i=0;i<=max_a_b;i++){
         tong[i]=a[i]+b[i];
     }
 }
 
 void trumang(int a[], int b[]){
-    for(int i=0;i<=max;i++){
+    for(int i=0;i<=max_a_b;i++){
         hieu[i]=a[i]-b[i];
     }
 }
 
 void nhanmang(int a[], int b[]){
-    for(int i=0;i<=m;i++){
-        for(int j=0;j<=n;j++){
+    for(int i=0;i<=so_mu_a;i++){
+        for(int j=0;j<=so_mu_b;j++){
             tich[i+j]+=a[i]*b[j];
         }
     }
@@ -75,16 +75,16 @@ void nhanmang(int a[], int b[]){
 
 void chiamang(int a[], int b[]){
     int temp[20];
-    for(int i=0;i<=m;i++) sodu[i]=a[i];
-    while(len(sodu)>=n){
-        thuong[len(sodu)-n]=sodu[len(sodu)]/b[n];
+    for(int i=0;i<=so_mu_a;i++) sodu[i]=a[i];
+    while(len(sodu)>=so_mu_b){
+        thuong[len(sodu)-so_mu_b]=sodu[len(sodu)]/b[so_mu_b];
         for(int i=0;i<=20;i++) temp[i]=0;
         for(int i=0;i<=len(thuong);i++){
-            for(int j=0;j<=n;j++){
+            for(int j=0;j<=so_mu_b;j++){
                 temp[i+j]+=thuong[i]*b[j];
             }
         }
-        for(int i=0;i<=m;i++){
+        for(int i=0;i<=so_mu_a;i++){
         sodu[i]=a[i]-temp[i];
         }
     }
