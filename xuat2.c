@@ -118,7 +118,7 @@ void chiamang(int a[], int b[]) {
     while (leng(sodu) >= so_mu_b) {
         thuong[leng(sodu) - so_mu_b] = sodu[leng(sodu)] / b[so_mu_b];
         
-        // Xo· mang tam thoi
+        // Xo√° mang tam thoi
         for (int i = 0; i <= 19; i++) temp[i] = 0;
         
     
