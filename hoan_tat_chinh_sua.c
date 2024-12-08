@@ -179,10 +179,15 @@ int main(){
     nhanmang(a, b);
     printf("\nTich da thuc: ");
     xuatdathuc(tich);
+    if(so_mu_b==0 && b[0]==0){
+		printf("\nKhong the chia da thuc);
+		}
+    else{
     chiamang(a,b);
     printf("\nThuong da thuc: ");
     xuatdathuc_float(thuong);
      printf("\nSo du da thuc: ");
     xuatdathuc_float(sodu);
+    }
     return 0;
 }
