@@ -180,7 +180,7 @@ int main(){
     printf("\nTich da thuc: ");
     xuatdathuc(tich);
     if(so_mu_b==0 && b[0]==0){
-		printf("\nKhong the chia da thuc);
+		printf("\nKhong the chia da thuc");
 		}
     else{
     chiamang(a,b);
