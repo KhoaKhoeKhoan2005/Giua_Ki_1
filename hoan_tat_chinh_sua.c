@@ -125,6 +125,7 @@ void chiamang(int a[], int b[]){
         for(int i=0;i<=so_mu_a;i++){
         sodu[i]=fa[i]-temp[i];
         }
+	if(so_mu_b==0) break;
     }
 }
 void xuatdathuc(int a[]) {
