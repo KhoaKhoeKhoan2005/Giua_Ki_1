@@ -85,42 +85,42 @@ int leng(int mang[]) 	{
 	{    if (mang[i] != 0) return i;	}	// Tra ve bac dau tien khac 0
     return 0;		// Neu tat ca bang 0, tra ve 0
 }
-int fleng(float mang[]) {
+int fleng(float mang[]) {	//ham leng cho mang float
     for (int i = max - 1; i >= 0; i--) 
 	{    if (mang[i] != 0) return i;    }
     return 0;
 }
-void congmang(int a[], int b[])	{
+void congmang(int a[], int b[])	{	//phep cong mang
     for(int i=0;i<=max_a_b;i++)
 	{    tong[i]=a[i]+b[i];    }
 }
-void trumang(int a[], int b[])	{
+void trumang(int a[], int b[])	{	//phep tru mang
     for(int i=0;i<=max_a_b;i++)
 	{    hieu[i]=a[i]-b[i];    }
 }
-void nhanmang(int a[], int b[])	{
+void nhanmang(int a[], int b[])	{	//phep nhan mang
     for(int i=0;i<=so_mu_a;i++)
 	{
-        for(int j=0;j<=so_mu_b;j++)
+        for(int j=0;j<=so_mu_b;j++)	//thuc hien nhan tung phan tu cua mang roi cong lai
 		{    tich[i+j]+=a[i]*b[j];    }
     }
 }
 void chiamang(int a[], int b[])	{
-    for (int i=0;i<=so_mu_a;i++) fa[i]=a[i]*1.0;
+    for (int i=0;i<=so_mu_a;i++) fa[i]=a[i]*1.0;	//tao 2 mang float
     for (int i=0;i<=so_mu_b;i++) fb[i]=b[i]*1.0;
-    float temp[20];
+    float temp[20];	//ham temp de luu tich cua thuong va fb
     for(int i=0;i<=so_mu_a;i++) sodu[i]=fa[i];
     while(fleng(sodu)>=so_mu_b)
 	{
-        thuong[fleng(sodu)-so_mu_b]=sodu[fleng(sodu)]/fb[so_mu_b];
-        for(int i=0;i<=20;i++) temp[i]=0;
+        thuong[fleng(sodu)-so_mu_b]=sodu[fleng(sodu)]/fb[so_mu_b]; //chia cho bac cao nhat
+        for(int i=0;i<=20;i++) temp[i]=0; //reset lai temp de khoi cong don
         for(int i=0;i<=fleng(thuong);i++)
 		{
             for(int j=0;j<=so_mu_b;j++)
-			{    temp[i+j]+=thuong[i]*fb[j];    }
+			{    temp[i+j]+=thuong[i]*fb[j];    } //temp bang tich cua thuong va fb
         }
         for(int i=0;i<=so_mu_a;i++)
-		{    sodu[i]=fa[i]-temp[i];    }
+		{    sodu[i]=fa[i]-temp[i];    } //tinh lai so du
 	if(so_mu_b==0) break;
     }
 }
@@ -141,7 +141,7 @@ void xuatdathuc(int a[]) 	{
     if (first) printf("0");		// Neu da thuc rong, in 0
     printf("\n");
 }
-void xuatdathuc_float(float a[]) 	{
+void xuatdathuc_float(float a[]) 	{	// Ham xuat da thuc cho mang float
     int first = 1;
     for (int i = max - 1; i >= 0; i--) 
 	{
