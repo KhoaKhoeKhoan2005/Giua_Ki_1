@@ -115,7 +115,7 @@ void chiamang(int a[], int b[])	{
     for (int i=0;i<=so_mu_a;i++) fa[i]=a[i]*1.0; //chuyen he so cua 2 mang a[] va b[] sang so thuc va luu ru vao float
     for (int i=0;i<=so_mu_b;i++) fb[i]=b[i]*1.0;
     float temp[20];	// dung de luu kq trung gian cua phep nhan trong qua trinh chia
-    for(int i=0;i<=so_mu_a;i++) sodu[i]=fa[i];//luu phan du cua moi buoc chia.
+    for(int i=0;i<=so_mu_a;i++) sodu[i]=fa[i];//// Sao chep phan d ban dauu tu fa sang sodu
     while(fleng(sodu)>=so_mu_b)
     // fleng(sodu) tra ve bac cao nhat cua phan du
 	{
@@ -128,9 +128,11 @@ void chiamang(int a[], int b[])	{
 			{    temp[i+j]+=thuong[i]*fb[j];    }//Moi phan tu cua thuong(tu mang thuong[]) duoc nhan voi tung he so cua da thuc chia (tu mang fb[]).
 			//va luu vao mang temp
         }
+	//cap nhat phan du moi
         for(int i=0;i<=so_mu_a;i++)
 		{    sodu[i]=fa[i]-temp[i];    } //Phan du moi se là hieu giua phan du cu và tich vua tính duoc (temp[]).
-	if(so_mu_b==0) break;//Neu bac cua da thuc chia là 0, bo qua tranh loi!!! tranh vong lap vo han!!!
+	    
+        if (fleng(sodu) < so_mu_b) break;// neu bac cao nhat cua phan du thap hon bac cao nhat cua da thuc 2
     }
 }
 void xuatdathuc(int a[]) 	{
