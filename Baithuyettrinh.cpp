@@ -130,7 +130,7 @@ void chiamang(int a[], int b[])	{
         }
         for(int i=0;i<=so_mu_a;i++)
 		{    sodu[i]=fa[i]-temp[i];    } //Phan du moi se là hieu giua phan du cu và tich vua tính duoc (temp[]).
-	if(so_mu_b==0) break;//Neu bac cua da thuc chia là 0, phép chia se ket thuc ngay lap tuc.
+	if(so_mu_b==0) break;//Neu bac cua da thuc chia là 0, bo qua tranh loi!!! tranh vong lap vo han!!!
     }
 }
 void xuatdathuc(int a[]) 	{
@@ -141,10 +141,10 @@ void xuatdathuc(int a[]) 	{
 		{
             if (!first && a[i] > 0) printf(" + ");		// In dau cong neu khong phai phan tu dau
             if (a[i] < 0) printf(" - ");		 // In dau tru neu he so am
-            if (abs(a[i]) != 1 || i == 0) printf("%d", abs(a[i]));		
-            if (i > 0) printf("x");		// In bien x
+            if (abs(a[i]) != 1 || i == 0) printf("%d", abs(a[i]));// la hang so		
+            if (i > 0) printf("x");		// bac bang 1 do bi chan o if duoi
             if (i > 1) printf("^%d", i);		// In bac neu lon hon 1
-            first = 0;
+            first = 0;			//tra ve gia tri first bang 0
         }
     }
     if (first) printf("0");		// Neu da thuc rong, in 0
@@ -172,7 +172,6 @@ int main()	{
     nhapmang(dt1, dt2);
     nhapvarutgondt(dt1, a);
     nhapvarutgondt(dt2, b);
-    so_mu_a=leng(a); so_mu_b=leng(b);
     so_mu_a = leng(a);		        // Bac cao nhat cua da thuc 1
     so_mu_b = leng(b);			// Bac cao nhat cua da thuc 2
     max_a_b = (so_mu_a >= so_mu_b) ? so_mu_a : so_mu_b;		// Xac dinh bac cao nhat cua 2 da thuc
