@@ -131,7 +131,7 @@ void chiamang(int a[], int b[])	{
 	//cap nhat phan du moi
         for(int i=0;i<=so_mu_a;i++)
 		{    sodu[i]=fa[i]-temp[i];    } //Phan du moi se là hieu giua phan du cu và tich vua tính duoc (temp[]).
-	    
+	if(so_mu_b==0) break;
         if (fleng(sodu) < so_mu_b) break;// neu bac cao nhat cua phan du thap hon bac cao nhat cua da thuc 2
     }
 }
