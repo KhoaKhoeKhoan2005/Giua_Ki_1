@@ -7,7 +7,7 @@ int a[max],b[max],tong[max],hieu[max],tich[max*2],so_mu_a,so_mu_b,max_a_b;
 float fa[max], fb[max], thuong[max], sodu[max];
 void nhapmang(char *dt1, char *dt2) {
     printf("Nhap da thuc thu 1:\n");
-    fgets(dt1, 100, stdin); // Doc du lieu tu ban phim va luu vao mang dt1
+    fgets(dt1, 100, stdin);             // Doc du lieu tu ban phim va luu vao mang dt1
     dt1[strcspn(dt1, "\n")] = 0; 	//Loai bo ky tu '\n' o cuoi chuoi
     printf("Nhap da thuc thu 2:\n");
     fgets(dt2, 100, stdin);		// Doc du lieu tu ban phim va luu vao mang dt2
@@ -15,12 +15,12 @@ void nhapmang(char *dt1, char *dt2) {
 }
 void nhapvarutgondt(char* dt, int c[]) {
     for (int i = 0; i < max; i++) 
-	{	c[i] = 0;	}		//khoi tao he so da thuc la 0
+	{	c[i] = 0;	}       //khoi tao he so da thuc la 0
 	
     int len = strlen(dt);		//Lay do dai cua chuoi da thuc khong bao gom ky tu '\0'
     int i = 0, sign = 1, stack[100], top = -1;
-//sign luu tru dau hien tai (duong hoac am), vd nhap -5 may se luu l‡ -5.
-//stack[] l‡ mang giup xu li dau cua c·c hang tu trong da thuc khi cÛ dau ngoac
+//sign luu tru dau hien tai (duong hoac am), vd nhap -5 may se luu l√† -5.
+//stack[] l√† mang giup xu li dau cua c√°c hang tu trong da thuc khi c√≥ dau ngoac
 //top=-1 nghia la ngan xep hien tai dang rong, de luu tru chi so cua phan tu 
     stack[++top] = 1;		
 //Khoi tao dau ban dau la duong, ++top tang top tu -1 len 0,sau do stack[0] = 1, se gan gtri 1 vao ptu dau tien cua mang stack	
@@ -43,7 +43,7 @@ void nhapvarutgondt(char* dt, int c[]) {
             i++;    }
         	//Xu ly dau dong ngoac
 		else if (dt[i] == ')') 
-		{    top--;		//pop dau hien tai ra khoi stack khi gap dau ')', giam gia tri top
+		{    top--;	//pop dau hien tai ra khoi stack khi gap dau ')', giam gia tri top
             i++;    } 
 		else 
 		{		//Xu ly mot hang tu trong da thuc
@@ -54,7 +54,7 @@ void nhapvarutgondt(char* dt, int c[]) {
             while (i < len && dt[i] != '+' && dt[i] != '-' && dt[i] != '(' && dt[i] != ')')
 			{    temp[j++] = dt[i++]; // Doc tung ki tu trong da thuc
 			   }
-			temp[j] = '\0';//gan ki tu ket thuc chuoi '\0' v‡o vi tri j trong mang temp de dam bao chuoi hop le
+		temp[j] = '\0';//gan ki tu ket thuc chuoi '\0' v√†o vi tri j trong mang temp de dam bao chuoi hop le
 //Kiem tra xem hang tu co chua x khong (de xac dinh la hang tu chua bien), neu co x thi vitrix se tro den vi tri cua x
             char* vitrix = strchr(temp, 'x');// Day la mot con tro kieu char,de luu tru vitri cua 'x' trong chuoi temp
             if (vitrix) // neu co x, tuc la da thuc co bac cao hon bac 0
@@ -91,7 +91,7 @@ int leng(int mang[]) 	{//su dung de tinh bac cao nhat cua mot da thuc co he so k
 }
 int fleng(float mang[]) {//su dung de tinh bac cao nhat cua mot da thuc co he so kieu so thuc (float).
     for (int i = max - 1; i >= 0; i--) //Duyet tu bac cao nhat
-	{    if (mang[i] != 0) return i;    }//Khi gap mot ptu co gtri kh·c 0, h‡m se tra ve i, tuc la bac cao nhat cua da thuc.
+	{    if (mang[i] != 0) return i;    }//Khi gap mot ptu co gtri kh√°c 0, h√†m se tra ve i, tuc la bac cao nhat cua da thuc.
     return 0;     // Neu tat ca bang 0, tra ve 0
 }
 void congmang(int a[], int b[])	{	//phep cong mang
@@ -129,8 +129,8 @@ void chiamang(int a[], int b[])	{
 			//va luu vao mang temp
         }
         for(int i=0;i<=so_mu_a;i++)
-		{    sodu[i]=fa[i]-temp[i];    } //Phan du moi se l‡ hieu giua phan du cu v‡ tich vua tÌnh duoc (temp[]).
-	if(so_mu_b==0) break;//Neu bac cua da thuc chia l‡ 0, phÈp chia se ket thuc ngay lap tuc.
+		{    sodu[i]=fa[i]-temp[i];    } //Phan du moi se l√† hieu giua phan du cu v√† tich vua t√≠nh duoc (temp[]).
+	if(so_mu_b==0) break;//Neu bac cua da thuc chia l√† 0, ph√©p chia se ket thuc ngay lap tuc.
     }
 }
 void xuatdathuc(int a[]) 	{
@@ -173,11 +173,11 @@ int main()	{
     nhapvarutgondt(dt1, a);
     nhapvarutgondt(dt2, b);
     so_mu_a=leng(a); so_mu_b=leng(b);
-    so_mu_a = leng(a);		// Bac cao nhat cua da thuc 1
+    so_mu_a = leng(a);		        // Bac cao nhat cua da thuc 1
     so_mu_b = leng(b);			// Bac cao nhat cua da thuc 2
     max_a_b = (so_mu_a >= so_mu_b) ? so_mu_a : so_mu_b;		// Xac dinh bac cao nhat cua 2 da thuc
-	congmang(a, b);		// Cong hai da thuc
-printf("\nTong da thuc: ");
+    congmang(a, b);		// Cong hai da thuc
+    printf("\nTong da thuc: ");
     xuatdathuc(tong);		// Xuat ket qua tong
     trumang(a, b);		// Tru hai da thuc
     printf("\nHieu da thuc: ");
